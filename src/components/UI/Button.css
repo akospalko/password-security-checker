@@ -1,0 +1,36 @@
+.button-default {
+  height: 45px;
+  width: 120px;
+  outline: none;
+  border: none;
+  border-radius: var(--border-radius-button);
+  cursor: pointer;
+}
+
+.button-login {
+  outline: 2px solid var(--color-2);
+  background-color: transparent;
+  color: var(--color-2);
+}
+.button-login:focus {
+  outline: 3px solid var(--color-2);
+}
+
+.button-signup {
+  background-color: var(--color-4);
+  color: var(--color2);
+}
+.button-signup:focus {
+  outline: 1px solid var(--color-4);
+}
+.button-password-visibility-toggler {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 25px;
+  height: 100%;
+  outline: none;
+}
+.button-password-visibility-toggler:focus {
+  outline: 1px solid var(--color-4);
+}

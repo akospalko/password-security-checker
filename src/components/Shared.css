@@ -1,0 +1,79 @@
+.header-1 {
+  font-size: 30px;
+  line-height: 30px;
+  color: var(--color-3);
+  margin: 0;
+}
+.header-2 {
+  font-size: 30px;
+  line-height: 44px;
+  color: var(--color-2);
+  margin: 0;
+}
+.header-3 {
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-3);
+}
+.header-4 {
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--color-2);
+  margin: 0;
+  margin: 1rem 0;
+}
+.header-5 {
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-1);
+}
+.header-6 {
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--color-1);
+  margin: 1rem 0;
+}
+.text-style-button {
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--color-2);
+}
+.text-style-pw-security {
+  font-size: 14px;
+  line-height: 17px;
+}
+.text-style-pw-security--low {
+  color: var(--color-11);
+}
+.text-style-pw-security--medium {
+  color: var(--color-6);
+}
+.text-style-pw-security--high {
+  color: var(--color-8); 
+}
+.text-style-label {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color-1);
+}
+.text-style-label--active {
+  color: var(--color-4);
+}
+.text-style-input {
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-3);
+}
+
+.text-style-terms {
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--color-1);
+  margin-left: 0.5rem;
+  text-decoration: none;
+}
+.paragraph {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color-1);
+}

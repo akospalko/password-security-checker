@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&family=Open+Sans:ital,wght@1,600&display=swap');
+
+:root {
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Open Sans', sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* color palettes  */
+  --color-1: #a1a1a1;
+  --color-2: #ffffff;
+  --color-3: #757575;
+  --color-4: #4a90e2;
+  --color-6: #f9c466;
+  --color-5: #e0e0e0;
+  --color-8: #0a96a3;
+  --color-7: #bebebe;
+  --color-9: #d4d4d4;
+  --color-10: #f7f7f7;
+  --color-11: #cd4146;
+  --color-12: #000000;
+
+  /* border radius */
+  --border-radius-button: 5px;
+  --border-radius-modal: 10px;
+  --border-radius-round: 50%; 
+  /* misc */
+  --blur: 10px;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
