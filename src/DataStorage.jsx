@@ -13,3 +13,35 @@ export const TEXT = {
   TERMS: 'Terms',
   PRIVACY: 'Privacy',
 }
+
+// TEMPLATES
+export const PASSWORD_SECURITY_RULES = {
+  low: {
+    id: 1,
+    length: 6,
+    label: 'low security',
+    style: 'var(--color-11)',
+    regex: /^.{6,}$/
+  },
+  medium: {
+    id: 2,
+    length: 8,
+    label: 'medium security',
+    style: 'var(--color-6)',
+    regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
+  },
+  high: {
+    id: 3,
+    length: 10,
+    label: 'high security',
+    style: 'var(--color-8)',
+    regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=[\]{}|:;,.<>?/ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÇçÑñß]).{10,}$/
+  },
+  veryHigh: {
+    id: 4,
+    length: 12,
+    label: 'very high security',
+    style: 'var(--color-12)',
+    regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=[\]{}|:;,.<>?/ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÇçÑñß]).{16,}$/
+  }
+}
