@@ -1,19 +1,17 @@
+// Authentication page layout wrapper, context 
 import './App.css'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import InformationTab from './components/InformationTab'
-import { useMediaQuery } from 'react-responsive'
+import FormContextProvider from '../context/FormContext'
 
 function App() {
-  // MEDIA QUERY
-  const isSmallScreen = useMediaQuery({ query: '(max-width: 767px)' })
-    
   return (
-    <div className='authentication-wrapper'>
-      <Signup/>
-      <Login/>
-      {isSmallScreen && <InformationTab/>}
-    </div>
+    <FormContextProvider>
+      <div className='page-layout'>
+        <Signup/>
+        <Login/>
+      </div>
+    </FormContextProvider>
   )
 }
 
