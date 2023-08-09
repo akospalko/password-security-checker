@@ -61,7 +61,12 @@ export default function FormContextProvider({children}) {
   // Submit form
   const submitFormHandler = async (e) => {
     e.preventDefault();
-    // post request
+    // handle if client is offline
+    if (!navigator.onLine) {
+      updateStatus("var(--color-11)", "You are currently offline.");
+      return;
+    }
+  
     try {
       setIsSubmitting(true);
       const response = await axios.post("/authenticate", convertData(formData));
