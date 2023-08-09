@@ -16,7 +16,8 @@ export const TEXT = {
   OPEN_MENU: "open information menu",
   PASSWORD: "Password",
   EMAIL: "Email",
-  PASSWORD_RULES: 'Password rules'
+  PASSWORD_RULES: "Password rules",
+  CLIENT_OFFLINE: "You are currently offline."
 }
 
 // TEMPLATES

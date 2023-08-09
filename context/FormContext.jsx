@@ -1,7 +1,7 @@
 // Form context: form states, related logic, helper functionalities
 import { createContext, useContext, useState } from "react";
 import axios from "axios"
-import { PASSWORD_SECURITY_RULES, FORM_DATA_TEMPLATE } from "../src/util/DataStorage";
+import { PASSWORD_SECURITY_RULES, FORM_DATA_TEMPLATE, TEXT } from "../src/util/DataStorage";
 
 // Create context
 const FormContext = createContext();
@@ -63,13 +63,13 @@ export default function FormContextProvider({children}) {
     e.preventDefault();
     // handle if client is offline
     if (!navigator.onLine) {
-      updateStatus("var(--color-11)", "You are currently offline.");
+      updateStatus("var(--color-11)", TEXT.CLIENT_OFFLINE);
       return;
     }
   
     try {
       setIsSubmitting(true);
-      const response = await axios.post("/authenticate", convertData(formData));
+      const response = await axios.post("https://us-central1-ria-server-b1103.cloudfunctions.net/authenticate", convertData(formData));
       const {name, error} = response.data?.result ?? {}
       if(error) { // on unsuccessfull auth (invalid credentials)
         updateStatus("var(--color-3)", error);
