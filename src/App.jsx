@@ -1,17 +1,25 @@
-// Authentication page layout wrapper, context 
-import "./App.css"
-import Login from "./containers/Login"
-import Signup from "./containers/Signup"
-import FormContextProvider from "../context/FormContext"
+// Page layout
+import Login from "./containers/Login";
+import Signup from "./containers/Signup";
+import PasswordInfoModal from "./components/PasswordInfoModal";
+import PasswordInfoButton from "./components/PasswordInfoButton";
+import { useModalContext } from "../context/ModalContext";
+import "./App.css";
 
 function App() {
+  // CONTEXT
+  const {isModalToggled} = useModalContext();
   return (
-    <FormContextProvider>
-      <div className="page-layout">
-        <Signup/>
-        <Login/>
-      </div>
-    </FormContextProvider>
+    <div className="page-layout">
+      {/* Password information modal button */}
+      <PasswordInfoButton/>      
+      {/* Signup container */}
+      <Signup/>
+      {/* Login container */}
+      <Login/>
+      {/* Password rules information modal */}
+      {isModalToggled && <PasswordInfoModal/>}
+    </div>
   )
 }
 

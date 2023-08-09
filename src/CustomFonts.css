@@ -1,21 +1,26 @@
 .header-1 {
+  font-family: var(--open-sans);
   font-size: 30px;
   line-height: 30px;
   color: var(--color-3);
   margin: 0;
+  width: 100%;
 }
 .header-2 {
+  font-family: var(--open-sans);
   font-size: 30px;
   line-height: 44px;
   color: var(--color-2);
   margin: 0;
 }
 .header-3 {
+  font-family: var(--apple-font);
   font-size: 14px;
   line-height: 17px;
   color: var(--color-3);
 }
 .header-4 {
+  font-family: var(--apple-font);
   font-size: 14px;
   line-height: 30px;
   color: var(--color-2);
@@ -23,57 +28,77 @@
   margin: 1rem 0;
 }
 .header-5 {
+  font-family: var(--apple-font);
   font-size: 14px;
   line-height: 17px;
   color: var(--color-1);
+  user-select: none;
 }
 .header-6 {
+  font-family: var(--open-sans);
   font-size: 14px;
   line-height: 19px;
   color: var(--color-1);
-  margin: 1rem 0;
+  margin: 1rem 0 1.5rem 0;
+  width: 100%;
 }
 .text-style-button {
+  font-family: var(--open-sans);
   font-size: 14px;
   line-height: 30px;
   color: var(--color-2);
+  user-select: none;
 }
-.text-style-pw-security {
+.text-style-status-message {
+  font-family: var(--apple-font);
   font-size: 14px;
   line-height: 17px;
-}
-.text-style-pw-security--low {
-  color: var(--color-11);
-}
-.text-style-pw-security--medium {
-  color: var(--color-6);
-}
-.text-style-pw-security--high {
-  color: var(--color-8); 
+  color: var(--color-1);
 }
 .text-style-label {
+  font-family: var(--apple-font);
   font-size: 12px;
   line-height: 15px;
   color: var(--color-1);
+  user-select: none;
 }
 .text-style-label--active {
   color: var(--color-4);
 }
-.text-style-input {
-  font-size: 14px;
-  line-height: 17px;
-  color: var(--color-3);
-}
-
 .text-style-terms {
+  font-family: var(--open-sans);
   font-size: 12px;
   line-height: 17px;
   color: var(--color-1);
   margin-left: 0.5rem;
   text-decoration: none;
 }
+.text-style-terms:focus-visible {
+  outline: 2px solid var(--color-9);
+  outline-offset: var(--outline-offset);
+  border-radius: var(--border-radius-button);
+}
 .paragraph {
+  font-family: var(--apple-font);
   font-size: 12px;
   line-height: 15px;
   color: var(--color-1);
+  margin: 0.5rem 0;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 349px) {
+  .header-1 {
+    text-align: center;
+  }
+  .header-6 {
+    text-align: center;
+  }
+  .text-style-terms {
+    margin: 0 0.5rem ;
+  }
+  .information-tab-menu {
+    margin: 0;
+    height: 30px;
+  }
 }
