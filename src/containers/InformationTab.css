@@ -2,21 +2,29 @@
   display: flex;
   width: 100%;
   align-items: center;
+  z-index: 3;
 }
 .information-tab-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin-top: 3rem;
   width: 100%;
+  height: 30px;
 }
-
+.information-tab-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
 .information-tab-menu {
   display: flex;
-  margin-left: 0.5rem;
-  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 30px;
 }
-
 .information-tab-menu-ellipsis {
   height: 4px;
   width: 4px;
@@ -25,12 +33,18 @@
   background-color: var(--color-1);
 }
 
-@media screen and (min-width: 500px) {
-  .information-tab {
-    width: 500px;
+/* MEDIA QUERIES */
+@media screen and (max-width: 349px) {
+  .information-tab-content {
+    flex-direction: column;
+    height: auto;
   }
 }
-
+@media screen and (min-width: 500px) {
+  .information-tab {
+    max-width: 400px;
+  }
+}
 @media screen and (min-width: 768px) {
   .information-tab {
     display: grid;
@@ -40,15 +54,14 @@
     justify-self: center;
     margin: 0;
   }
-
   .information-tab-content {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+    margin: 2rem 0;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .information-tab {
     width: 400px;
