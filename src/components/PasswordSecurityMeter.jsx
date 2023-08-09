@@ -1,101 +1,68 @@
-import { useEffect, useMemo, useState } from "react";
-import './AuthenticationModal.css'
-import './Form.css'
+// Password security tracker 
+import { useEffect, useState } from "react";
+import { useFormContext } from "../../context/FormContext";
+import { ACTIVE_PASSWORD_SECURITY_LEVELS, PASSWORD_SECURITY_RULES } from "../util/DataStorage";
+import "./PasswordSecurityMeter.css";
 
-export default function PasswordSecurityMeter({password}) {
-  // TEMPLATES
-  const RULES_PASSWORD_SECURITY_LEVELS = useMemo(() => (
-    {
-      low: {
-        id: 1,
-        length: 6,
-        label: 'low',
-        style: 'var(--color-11)',
-        regex: /^.{6,}$/
-      },
-      medium: {
-        id: 2,
-        length: 8,
-        label: 'medium',
-        style: 'var(--color-6)',
-        regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
-      },
-      high: {
-        id: 3,
-        length: 10,
-        label: 'high',
-        style: 'var(--color-8)',
-        regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=[\]{}|:;,.<>?/ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÇçÑñß]).{10,}$/
-      },
-      veryHigh: {
-        id: 4,
-        length: 12,
-        label: 'very high',
-        style: 'var(--color-12)',
-        regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=[\]{}|:;,.<>?/ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÇçÑñß]).{16,}$/
-      }
-    }), []);
-  const ACTIVE_PASSWORD_SECURITY_LEVELS = {
-    low: false,
-    medium: false,
-    high: false,
-    veryHigh: false
-  }
-
+export default function PasswordSecurityMeter() {
   // STATE
   const [passwordSecurityLevels, setPasswordSecurityLevels] = useState(ACTIVE_PASSWORD_SECURITY_LEVELS);
 
+  // CONTEXT
+  const { formData, setStatus, setHighestActiveLevel } = useFormContext();
+
   // EFFECT
+  // Validate password, update security level and status message 
   useEffect(() => {
     const passwordValidator = (password) => {
+      // Empty password: reset all security levels
       if (password?.length === 0) {
-        // If the password is empty, reset all security levels to inactive
-        setPasswordSecurityLevels((prevLevels) => {
-          const updatedPasswordSecurity = { ...prevLevels };
-          for (const level in updatedPasswordSecurity) {
-            updatedPasswordSecurity[level] = false;
-          }
-          return { ...updatedPasswordSecurity };
-        });
+        setPasswordSecurityLevels({...ACTIVE_PASSWORD_SECURITY_LEVELS});
         return;
       }
-  
-      setPasswordSecurityLevels((prevLevels) => {
-        const updatedPasswordSecurity = { ...prevLevels };
-        let activeLevel = null;
-  
-        for (const level in updatedPasswordSecurity) {
-          const regex = RULES_PASSWORD_SECURITY_LEVELS[level].regex;
-          const isMatch = regex.test(password);
-          updatedPasswordSecurity[level] = isMatch;
-  
-          if (isMatch) {
-            activeLevel = level;
-          }
-        }
-  
-        if (activeLevel) {
-          for (const level in updatedPasswordSecurity) {
-            updatedPasswordSecurity[level] = true;
-            if (level === activeLevel) break;
-          }
-        }
-  
-        return { ...updatedPasswordSecurity };
-      });
-    };
-  
-    passwordValidator(password);
-  }, [password, RULES_PASSWORD_SECURITY_LEVELS]);
 
+      let activeLevel = null;
+
+      const updatedLevels = Object.keys(PASSWORD_SECURITY_RULES).reduce((acc, level) => {
+        const regex = PASSWORD_SECURITY_RULES[level].regexPattern;
+        const isMatch = regex.test(password);
+        acc[level] = isMatch;
+
+        if (isMatch) {
+          activeLevel = level;
+        }
+        return acc;
+      }, {});
+
+      setPasswordSecurityLevels(updatedLevels);
+
+      if (activeLevel) {
+        setStatus(prevStatus => ({
+          ...prevStatus,
+          style: PASSWORD_SECURITY_RULES[activeLevel]?.style,
+          message: `${PASSWORD_SECURITY_RULES[activeLevel]?.label} password`,
+        }));
+        setHighestActiveLevel(activeLevel);
+      } else {
+        setStatus(prevStatus => ({
+          ...prevStatus,
+          style: '',
+          message: '',
+        }));
+        setHighestActiveLevel(null);
+      }
+    };
+    passwordValidator(formData["password"]?.value);
+  }, [formData, setHighestActiveLevel, setStatus]);
 
   return (
-    <div className='password-security-meter'>
-      {Object.keys(RULES_PASSWORD_SECURITY_LEVELS).map(item => (
+    <div className="password-security-meter">
+      {Object.keys(PASSWORD_SECURITY_RULES).map(item => (
         <span
-          key={RULES_PASSWORD_SECURITY_LEVELS[item]?.id}
-          style={passwordSecurityLevels[item] ? { backgroundColor: `${RULES_PASSWORD_SECURITY_LEVELS[item]?.style}` } : {}}
-        > {console.log(passwordSecurityLevels[item], RULES_PASSWORD_SECURITY_LEVELS[item]?.style)} </span>
+          key={PASSWORD_SECURITY_RULES[item]?.id}
+          style={passwordSecurityLevels[item] ? { backgroundColor: `${PASSWORD_SECURITY_RULES[item]?.style}` } : {}}
+        >
+        </span>
       ))}
     </div>
   )

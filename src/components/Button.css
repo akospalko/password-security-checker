@@ -1,0 +1,105 @@
+.button-default {
+  height: 45px;
+  width: 120px;
+  outline: none;
+  border: none;
+  border-radius: var(--border-radius-button);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.button-login {
+  border: 2px solid var(--color-2);
+  background-color: transparent;
+  color: var(--color-2);
+}
+.button-signup {
+  background-color: var(--color-4);
+  color: var(--color2);
+}
+.button-password-visibility-toggler {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  outline: none;
+}
+.button-information-tab-menu {
+  margin: 0 0.5rem;
+  width: auto;
+  height: 100%;
+  background-color: transparent;
+  padding: 0;
+}
+.button-modal-open {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin: 0.25rem;
+  border-radius: var(--border-radius-button--toggle-modal);
+  background-color: transparent;
+}
+.button-modal-close {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 1rem;
+  background-color: transparent;
+  border-radius: var(--border-radius-button--toggle-modal);
+}
+
+/* focus - keyboard */
+.button-password-visibility-toggler:focus-visible,
+.button-information-tab-menu:focus-visible,
+.button-signup:focus-visible {
+  outline: 2px solid var(--color-9);
+  outline-offset: var(--outline-offset);
+}
+.button-login:focus-visible {
+  outline: 2px solid var(--color-2);
+  border: 2px solid var(--color-2_35);
+  background-color: var(--color-2_35);
+  outline-offset: var(--outline-offset);
+}
+.button-signup:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: var(--outline-offset);
+}
+.button-modal-open:focus-visible,
+.button-modal-close:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: var(--outline-offset);
+}
+
+/* disabled */
+.button-signup:disabled {
+  background-color: var(--color-1);
+  pointer-events: none;
+}
+.button-login:disabled {
+  background-color: var(--color-2_10);
+  border: none;
+  pointer-events: none;
+}
+/* hover */
+.button-signup:hover {
+  background-color: var(--color-4_medium);
+}
+.button-login:hover {
+  background-color: var(--color-2_35);
+}
+/* active */
+.button-signup:active {
+  background-color: var(--color-4_dark);
+}
+.button-login:active {
+  background-color: var(--color-2_50);
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 349px) {
+  .button-information-tab-menu {
+    margin: 0;
+    height: 25px;
+  }
+}

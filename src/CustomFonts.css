@@ -6,6 +6,7 @@
   margin: 0;
   width: 100%;
 }
+
 .header-2 {
   font-family: var(--open-sans);
   font-size: 30px;
@@ -85,6 +86,16 @@
   color: var(--color-1);
   margin: 0.5rem 0;
 }
+.text-style-password-info {
+  font-family: var(--open-sans);
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--color-3);
+}
+.text-style-password-info--emphasised {
+  font-size: 16px;
+  line-height: 21px;
+}
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 349px) {
@@ -101,4 +112,15 @@
     margin: 0;
     height: 30px;
   }
+}
+
+/* modifiers applied to text styles */
+.text--centered {
+  text-align: center;
+}
+.text--margin-top-2rem {
+  margin-top: 2rem;
+}
+.text--margin-bottom-1rem {
+  margin-bottom: 1rem;
 }

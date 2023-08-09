@@ -1,0 +1,35 @@
+.authentication-remember-me {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 1rem 0;
+}
+.authentication-remember-me span {
+  margin-left: 0.5rem;
+}
+
+.input-checkbox {
+  width: 13px;
+  height: 13px;
+  background-color: var(--color-9);
+  border-radius: 50%;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+.input-checkbox:checked {
+  background-color: var(--color-4);
+}
+.input-checkbox:hover {
+  background-color: var(--color-4_medium);
+}
+.input-checkbox:active {
+  background-color: var(--color-4_dark);
+}
+.input-checkbox:focus-visible {
+  outline: 2px solid var(--color-9);
+}
